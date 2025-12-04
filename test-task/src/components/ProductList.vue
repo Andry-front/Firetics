@@ -74,7 +74,7 @@ onMounted(() => {
     containerHeight.value = scrollContainer.value.clientHeight;
     resizeObserver = new ResizeObserver(entries => {
       if (entries.length > 0) {
-        containerHeight.value = entries[0].contentRect.height;
+        containerHeight.value = entries[0]?.contentRect.height || 0;
       }
     });
     resizeObserver.observe(scrollContainer.value);

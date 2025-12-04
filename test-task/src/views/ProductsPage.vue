@@ -8,6 +8,7 @@ const { filtered, query, isLoading, loadProducts } = useProducts();
 const inputRef = ref<HTMLInputElement | null>(null);
 const isBlinking = ref(false);
 const caretLeftPos = ref(0);
+const isVisibleCaret = ref(false);
 
 const caretStyle = computed(() => ({
   left: `${caretLeftPos.value}px`,
@@ -53,6 +54,7 @@ const handleBlur = () => {
 };
 
 onMounted(() => {
+  isVisibleCaret.value = true;
   updateCaretPosition();
 });
 
@@ -76,6 +78,7 @@ onMounted(loadProducts);
       />
 
       <div
+          v-if="isVisibleCaret"
           ref="caretRef"
           class="faux-caret"
           :class="{ 'is-blinking': isBlinking }"

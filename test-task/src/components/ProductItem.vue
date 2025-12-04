@@ -10,7 +10,7 @@ defineProps<{
 <template>
   <div class="item">
     <div class="images">
-      <img :src="product.images" alt="" />
+      <img :src="product.images[0]" :alt="product.title"/>
     </div>
     <div class="info">
       <p class="title">{{ product.title }}</p>
