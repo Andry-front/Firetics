@@ -10,11 +10,6 @@ export function useSliderControls(sliderElementRef: Ref<HTMLElement | null>) {
         if (!slider) return;
 
         const rect = slider.getBoundingClientRect();
-
-        console.log("Track width (rect.width):", rect.width);
-        console.log("Mouse X (ClientX):", event.clientX);
-        console.log("Track left position (rect.left):", rect.left);
-
         const newValue: number = ((event.clientX - rect.left) / rect.width) * 100;
 
         sliderValue.value = Math.max(0, Math.min(100, newValue));
