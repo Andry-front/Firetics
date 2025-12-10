@@ -34,9 +34,7 @@ const updateCaretPosition = () => {
     const input = inputRef.value;
     const currentText = input.value.substring(0, input.selectionStart || 0);
 
-    const width: number = measureTextWidth(currentText, input);
-
-    caretLeftPos.value = width;
+    caretLeftPos.value =  measureTextWidth(currentText, input);
   }
 };
 

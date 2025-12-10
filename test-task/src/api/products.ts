@@ -8,7 +8,7 @@ export async function fetchProducts(): Promise<Product[]> {
         }
 
         const data = await res.json();
-        return new Array(10000).fill(null).map((index) => data.products[index % 100]);
+        return new Array(10000).fill(null).map((_, index) => data.products[index % 100]);
     } catch (error) {
         console.error(error);
         throw error;
